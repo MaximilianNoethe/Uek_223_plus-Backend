@@ -13,10 +13,10 @@ jobs:
    - name: Print Hello World
      run: echo "Hello World"
      
-   - name: Execute bash script
-     run: ./run.sh
-     
    - name: Print secret
      run: echo $MY_SECRET
      env: 
        MY_SECRET: ${{ secrets.MY_SECRET }}
+
+   - name: Execute bash script
+     run: bash run.sh
