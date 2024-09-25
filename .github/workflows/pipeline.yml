@@ -12,3 +12,5 @@ jobs:
 
    - name: Print Hello World
      run: echo "Hello World"
+   - name: Print secret
+     run: echo $MY_SECRET
