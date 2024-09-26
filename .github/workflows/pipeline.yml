@@ -31,5 +31,8 @@ jobs:
         username: maxxxxxxx
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-   - name: Push to Docker Hub
-     run: docker push maxxxxxxx/backend-image-gallery
+   - name: Build and push
+     uses: docker/build-push-action@v6
+     with:
+        push: true
+        tags: maxxxxxxx/backend-image-gallery
