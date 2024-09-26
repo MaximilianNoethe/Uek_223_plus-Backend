@@ -23,5 +23,5 @@ jobs:
 
 
    - name: Build docker Image of BE
-     run: docker build -t maxxxxxx/backend-image-gallery /nypag-spring_backend-5b58b4e2560c
+     run: docker build -t maxxxxxx/backend-image-gallery nypag-spring_backend-5b58b4e2560c/Dockerfile
 
