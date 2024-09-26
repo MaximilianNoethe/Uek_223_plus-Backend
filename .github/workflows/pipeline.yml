@@ -21,7 +21,6 @@ jobs:
    - name: Execute bash script
      run: bash run.sh
 
-
    - name: Build docker Image of BE
      run: docker build -t maxxxxxxx/backend-image-gallery nypag-spring_backend-5b58b4e2560c
 
@@ -30,6 +29,18 @@ jobs:
      with:
         username: maxxxxxxx
         password: ${{ secrets.DOCKER_PASSWORD }}
+
+   - name: Set up JDK 18
+     uses: actions/setup-java@v4
+     with:
+      java-version: '18'
+      distribution: 'adopt'
+ 
+   - name: Setup Gradle
+     uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+ 
+   - name: Build with Gradle
+     run: ./gradlew build
 
    - name: Push to Docker Hub
      run: docker push maxxxxxxx/backend-image-gallery
