@@ -25,3 +25,11 @@ jobs:
    - name: Build docker Image of BE
      run: docker build -t maxxxxxx/backend-image-gallery nypag-spring_backend-5b58b4e2560c
 
+   - name: Login to Docker Hub
+     uses: docker/login-action@v3
+     with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+
+   - name: Push to Docker Hub
+     run: docker push ${{ secrets.DOCKER_USERNAME }}/backend-image-gallery
