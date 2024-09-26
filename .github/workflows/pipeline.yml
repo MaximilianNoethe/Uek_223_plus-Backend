@@ -31,7 +31,7 @@ jobs:
      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582
  
    - name: Build with Gradle
-     run: nypag-spring_backend-5b58b4e2560c/gradlew
+     run: nypag-spring_backend-5b58b4e2560c/gradlew build
 
    - name: Build docker Image of BE
      run: docker build -t maxxxxxxx/backend-image-gallery nypag-spring_backend-5b58b4e2560c
