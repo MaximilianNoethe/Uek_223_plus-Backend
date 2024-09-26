@@ -32,4 +32,4 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
    - name: Push to Docker Hub
-     run: docker push maxxxxxxx/backend-image-gallery
+     run: docker push docker.io/maxxxxxxx/backend-image-gallery
