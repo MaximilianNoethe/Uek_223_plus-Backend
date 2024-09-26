@@ -46,7 +46,7 @@ jobs:
  
       # Step 4: Build the application with Gradle
    - name: Build with Gradle
-     run: gradle build
+     run: nypag-spring_backend-5b58b4e2560c/gradle build
  
       # Step 5: Run unit tests with Gradle
    - name: Run tests with Gradle
