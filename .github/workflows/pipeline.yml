@@ -42,6 +42,11 @@ jobs:
   
    - name: Set up Gradle
      uses: gradle/gradle-build-action@v2
+
+   - name: SonarQube Analysis
+     env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+     run: gradle sonarqube
  
   
    - name: Build with Gradle
