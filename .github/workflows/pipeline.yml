@@ -68,7 +68,7 @@ jobs:
    - name: Push to Docker Hub
      run: docker push maxxxxxxx/backend-image-gallery
 
-   - name: executing remote ssh commands using password
+   - name: Pull new version of application
      uses: appleboy/ssh-action@master
      with:
       host: ${{ secrets.JUMP_HOST }}
