@@ -34,15 +34,7 @@ jobs:
       proxy_password: ${{ secrets.PROXY_PASSWORD}}
       script: echo "Hello World"
 
-
- SetupJDK:
-  runs-on: ubuntu-latest
-
-   steps:
-   - uses: actions/checkout@v3
-     with:
-       fetch-depth: 0
-
+  
    - name: Set up JDK 19
      uses: actions/setup-java@v2
      with:
@@ -50,59 +42,22 @@ jobs:
           distribution: 'adopt'
  
   
- SetupGradle:
-  runs-on: ubuntu-latest
-
-   steps:
-   - uses: actions/checkout@v3
-     with:
-       fetch-depth: 0
-
    - name: Set up Gradle
      uses: gradle/gradle-build-action@v2
  
- BuildGradle:
-  runs-on: ubuntu-latest
-
-   steps:
-   - uses: actions/checkout@v3
-     with:
-       fetch-depth: 0
-
+  
    - name: Build with Gradle
      run: gradle build
  
- TestGradle:
-  runs-on: ubuntu-latest
-
-   steps:
-   - uses: actions/checkout@v3
-     with:
-       fetch-depth: 0
-
+    
    - name: Run tests with Gradle
      run: gradle test
-
- SonarQube:
-  runs-on: ubuntu-latest
-
-   steps:
-   - uses: actions/checkout@v3
-     with:
-       fetch-depth: 0
 
    - name: SonarQube Analysis
      env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
      run: gradle sonarqube
     
- Image_Login_Push_Pull:
-  runs-on: ubuntu-latest
-
-   steps:
-   - uses: actions/checkout@v3
-     with:
-       fetch-depth: 0
 
    - name: Build docker Image of BE
      run: docker build -t maxxxxxxx/backend-image-gallery .
