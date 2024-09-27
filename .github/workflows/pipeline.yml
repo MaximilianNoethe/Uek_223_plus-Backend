@@ -44,12 +44,6 @@ jobs:
   
    - name: Set up Gradle
      uses: gradle/gradle-build-action@v2
-
-   - name: SonarQube Analysis
-     env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      GITHUB_REF_NAME: ${{ github.ref_name }}
-     run: gradle sonarqube
  
   
    - name: Build with Gradle
@@ -58,6 +52,11 @@ jobs:
     
    - name: Run tests with Gradle
      run: gradle test
+
+   - name: SonarQube Analysis
+     env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+     run: gradle sonarqube
 
    - name: Build docker Image of BE
      run: docker build -t maxxxxxxx/backend-image-gallery .
