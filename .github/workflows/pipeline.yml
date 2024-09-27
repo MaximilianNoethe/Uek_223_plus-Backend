@@ -53,10 +53,10 @@ jobs:
    - name: Run tests with Gradle
      run: gradle test
 
-   - name: SonarCloud Scan
-     uses: sonarsource/sonarcloud-github-action@v3.0.0
+   - name: SonarQube Analysis
      env:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+     run: gradle sonarqube
     
 
    - name: Build docker Image of BE
